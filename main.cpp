@@ -6,8 +6,12 @@ void fill_array(int* arr, const size_t N) { // Заполнение массива случайными чис
         arr[i] = rand()%256;
 }
 
-int main() {
-    size_t ARRAY_SIZE = 10;
+int main() {    
+    size_t ARRAY_SIZE;
+
+    std::cout << "Type in size of an array: ";
+    std::cin >> ARRAY_SIZE;
+    
     int* array = new int [ARRAY_SIZE];
     fill_array(array, ARRAY_SIZE);
 
