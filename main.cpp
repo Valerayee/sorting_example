@@ -1,8 +1,15 @@
 #include "extern_funcs.h"
 
+void fill_array(int* arr, const size_t N) { // «аполнение массива случайными числами O(N)
+    srand(time(0));
+    for (size_t i = 0; i < N; i++)
+        arr[i] = rand()%256;
+}
+
 int main() {
-    const size_t ARRAY_SIZE = 10;
-    int array[ARRAY_SIZE] = {20, 1, 6, 128, 123, 52, 545, 6, 46, -1 };
+    size_t ARRAY_SIZE = 10;
+    int* array = new int [ARRAY_SIZE];
+    fill_array(array, ARRAY_SIZE);
 
     sort(array, ARRAY_SIZE);
 
