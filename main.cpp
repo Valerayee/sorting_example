@@ -11,14 +11,18 @@ void sort(int* arr, const size_t N) { // Простой алгоритм сортировки по возраста
             }
 }
 
+void print_arr(int* arr, const size_t N) { // Вывод элементов массива О(N)
+    for (size_t i = 0; i < N; i++)
+        cout << arr[i] << ' ';
+}
+
 int main() {
     const size_t ARRAY_SIZE = 10;
     int array[ARRAY_SIZE] = {20, 1, 6, 128, 123, 52, 545, 6, 46, -1 };
 
     sort(array, ARRAY_SIZE);
 
-    for (size_t i = 0; i < ARRAY_SIZE; i++)
-        cout << array[i] << ' ';
+    print_arr(array, ARRAY_SIZE);
 
     return 0;
 }
