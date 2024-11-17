@@ -1,9 +1,10 @@
 #include <iostream>
+#include <random>
 using namespace std;
 
-void sort(int* arr, const size_t N) { // Простой алгоритм сортировки по возрастанию О(N^2)
-    for (size_t i = 0; i < N; i++)
-        for (size_t j = 0; j < N; j++)
+void sort(int* arr, const size_t N) { // Алгоритм сортировки пузырьком О(N^2)
+    for (size_t i = 0; i < N - 1; i++)
+        for (size_t j = i + 1; j < N; j++)
             if (arr[i] > arr[j]) {
                 int temp = arr[i];
                 arr[i] = arr[j];
@@ -16,9 +17,16 @@ void print_arr(int* arr, const size_t N) { // Вывод элементов массива О(N)
         cout << arr[i] << ' ';
 }
 
+void fill_array(int* arr, const size_t N) { // Заполнение массива случайными числами O(N)
+    srand(time(0));
+    for (size_t i = 0; i < N; i++)
+        arr[i] = rand()%256;
+}
+
 int main() {
-    const size_t ARRAY_SIZE = 10;
-    int array[ARRAY_SIZE] = {20, 1, 6, 128, 123, 52, 545, 6, 46, -1 };
+    size_t ARRAY_SIZE = 10;
+    int* array = new int [ARRAY_SIZE];
+    fill_array(array, ARRAY_SIZE);
 
     sort(array, ARRAY_SIZE);
 
